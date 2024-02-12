@@ -16,13 +16,17 @@ The REST API for the mentioned web application was coded using undermentioned te
 - MySQL
   <br>
 
+Entity Relationship Diagram.
+<img width="800" src="https://github.com/tharindu152/customer-management-system/blob/main/src/main/resources/img/entity%20Relationship%20diagram.png">
+
 Layered Architecture was followed to structure the project.
+<img width="800" src="https://github.com/tharindu152/customer-management-system/blob/main/src/main/resources/img/project%20architecture.png">
 
-<img width="800" src="https://github.com/tharindu152/bookstore-backend/blob/master/src/main/resources/img/LayeredArchitechture.drawio.svg">
+Structure of the Repository Layer
+<img width="800" src="https://github.com/tharindu152/customer-management-system/blob/main/src/main/resources/img/repository%20layer.png">
 
-API end points were created to perform CRUD operations on books, users, categories and orders. Displayed below is the ER Diagram used to map the relational databases.
-
-<img width="800" src="https://github.com/tharindu152/bookstore-backend/blob/master/src/main/resources/img/bookstore_erd.drawio.png">
+Structure of the Service Layer
+<img width="800" src="https://github.com/tharindu152/customer-management-system/blob/main/src/main/resources/img/service%20layer.png">
 
 ### License
 
