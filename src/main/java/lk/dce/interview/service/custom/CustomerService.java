@@ -9,6 +9,6 @@ public interface CustomerService extends SuperService {
     CustomerDto saveCustomer(CustomerDto customerDto);
     List<CustomerDto> getAllCustomers();
     void updateCustomer(CustomerDto customerDto);
-    void deleteCustomer(CustomerDto customerDto);
+    void deleteCustomer(Integer id);
 
 }

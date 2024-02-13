@@ -9,7 +9,12 @@ import lk.dce.interview.entity.Order;
 import lk.dce.interview.entity.Product;
 import lk.dce.interview.entity.Supplier;
 import org.modelmapper.ModelMapper;
+import org.springframework.stereotype.Component;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
+@Component
 public class Transformer {
 
     private final ModelMapper mapper;
@@ -56,5 +61,9 @@ public class Transformer {
     public SupplierDto toSupplierDto(Supplier supplier){
         SupplierDto supplierDto = mapper.map(supplier, SupplierDto.class);
         return supplierDto;
+    }
+
+    public List<CustomerDto> toCustomerDtoList(List<Customer> customerList) {
+        return customerList.stream().map(this::toCustomerDto).collect(Collectors.toList());
     }
 }
