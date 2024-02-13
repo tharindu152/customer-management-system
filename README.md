@@ -14,9 +14,9 @@ The REST API for the mentioned web application was coded using undermentioned te
 - Hibernate Validator
 - Lombok
 - MySQL
-
 <br>
 Although spring boot gives built in solutions to repository and service layers, I have coded those layers by my self for demonstration purposes.
+<br>
 <br>
 
 Entity Relationship Diagram.
