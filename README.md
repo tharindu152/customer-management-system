@@ -7,14 +7,17 @@
 ### About The Project
 
 This project is created for a customer management web application.
-The REST API for the mentioned web application was coded using undermentioned technologies
+The REST API for the mentioned web application was coded using undermentioned technologies.
 
-- Java Spring
+- Java Springboot
 - Hibernate ORM
 - Hibernate Validator
 - Lombok
 - MySQL
-  <br>
+
+<br>
+Although spring boot gives built in solutions to repository and service layers, I have coded those layers by my self for demonstration purposes.
+<br>
 
 Entity Relationship Diagram.
 <img width="800" src="https://github.com/tharindu152/customer-management-system/blob/main/src/main/resources/img/entity%20Relationship%20diagram.png">
