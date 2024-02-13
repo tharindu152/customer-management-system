@@ -16,17 +16,17 @@ public class Order implements SuperEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "order_id")
-    private int orderId;
+    private Integer orderId;
     @Column(name = "order_status", nullable = false)
-    private int orderStatus;
+    private Integer orderStatus;
     @Column(name = "order_type", nullable = false)
-    private int orderType;
+    private Integer orderType;
     @Column(name = "ordered_on", updatable = false, nullable = false)
     private LocalDateTime orderedOn;
     @Column(name = "shipped_on", updatable = false, nullable = false)
     private LocalDateTime shippedOn;
     @Column(nullable = false, name = "is_active")
-    private boolean isActive;
+    private Boolean isActive;
     @ManyToOne
     @JoinColumn(name = "order_by", referencedColumnName = "user_id", nullable = false)
     private Customer customer;

@@ -16,13 +16,13 @@ public class Supplier implements SuperEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "supplier_id")
-    private int supplierId;
+    private Integer supplierId;
     @Column(nullable = false, length = 50, name = "supplier_name")
     private String supplierName;
     @Column(name = "created_on", updatable = false, nullable = false)
     private LocalDateTime createdOn;
     @Column(nullable = false, name = "is_active")
-    private boolean isActive;
+    private Boolean isActive;
 
     @Setter(AccessLevel.NONE)
     @EqualsAndHashCode.Exclude

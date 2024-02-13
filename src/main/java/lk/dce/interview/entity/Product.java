@@ -15,7 +15,7 @@ public class Product implements SuperEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "product_id")
-    private int productId;
+    private Integer productId;
     @Column(nullable = false, length = 50, name = "product_name")
     private String productName;
     @Column(nullable = false, name = "unit_price")
@@ -23,7 +23,7 @@ public class Product implements SuperEntity{
     @Column(name = "created_on", updatable = false, nullable = false)
     private LocalDateTime createdOn;
     @Column(nullable = false, name = "is_active")
-    private boolean isActive;
+    private Boolean isActive;
     @ManyToOne
     @JoinColumn(name = "supplier_id", referencedColumnName = "supplier_id", nullable = false)
     private Supplier supplier;

@@ -15,7 +15,7 @@ public class Customer implements SuperEntity{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "user_id")
-    private int userId;
+    private Integer userId;
     @Column(nullable = false, length = 30, name = "user_name")
     private String userName;
     @Column(nullable = false, length = 20)
