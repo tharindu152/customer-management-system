@@ -9,4 +9,5 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 @EnableWebMvc
 @Configuration
 public class WebAppConfig implements WebMvcConfigurer {
+
 }

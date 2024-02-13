@@ -4,6 +4,8 @@ import lk.dce.interview.dto.CustomerDto;
 import lk.dce.interview.dto.OrderDto;
 import lk.dce.interview.dto.ProductDto;
 import lk.dce.interview.dto.SupplierDto;
+import lk.dce.interview.dto.res.OrderResDto;
+import lk.dce.interview.dto.res.ProductResDto;
 import lk.dce.interview.entity.Customer;
 import lk.dce.interview.entity.Order;
 import lk.dce.interview.entity.Product;
@@ -11,7 +13,9 @@ import lk.dce.interview.entity.Supplier;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Component;
 
+import java.util.Collections;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Component
@@ -21,6 +25,12 @@ public class Transformer {
 
     public Transformer(ModelMapper mapper) {
         this.mapper = mapper;
+        mapper.typeMap(Integer.class, Customer.class)
+                .setConverter(ctx -> {
+                    Customer customer = new Customer();
+                    customer.setUserId(ctx.getSource());
+                    return customer;
+                });
     }
 
     public Customer fromCustomerDto(CustomerDto customerDto){
@@ -33,14 +43,26 @@ public class Transformer {
         return customerDto;
     }
 
+    public List<CustomerDto> toCustomerDtoList(List<Customer> customerList) {
+        return customerList.stream().map(this::toCustomerDto).collect(Collectors.toList());
+    }
+
     public Order fromOrderDto(OrderDto orderDto){
         Order order = mapper.map(orderDto, Order.class);
         return order;
     }
 
-    public OrderDto toOrderDto(Order order){
-        OrderDto orderDto = mapper.map(order, OrderDto.class);
-        return orderDto;
+    public OrderResDto toOrderResDto(Order order){
+        OrderResDto orderResDto = mapper.map(order, OrderResDto.class);
+        return orderResDto;
+    }
+
+    public List<OrderResDto> toOrderResDtoList(List<Order> orderList) {
+        if(orderList != null){
+            return orderList.stream().map(this::toOrderResDto).collect(Collectors.toList());
+        }else {
+            return Collections.emptyList();
+        }
     }
 
     public Product fromProductDto(ProductDto productDto){
@@ -48,9 +70,9 @@ public class Transformer {
         return product;
     }
 
-    public ProductDto toProductDto(Product product){
-        ProductDto productDto = mapper.map(product, ProductDto.class);
-        return productDto;
+    public ProductResDto toProductResDto(Product product){
+        ProductResDto productResDto = mapper.map(product, ProductResDto.class);
+        return productResDto;
     }
 
     public Supplier fromSupplierDto(SupplierDto supplierDto){
@@ -63,7 +85,5 @@ public class Transformer {
         return supplierDto;
     }
 
-    public List<CustomerDto> toCustomerDtoList(List<Customer> customerList) {
-        return customerList.stream().map(this::toCustomerDto).collect(Collectors.toList());
-    }
+
 }

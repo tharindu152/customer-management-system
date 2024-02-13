@@ -3,7 +3,9 @@ package lk.dce.interview.entity;
 import lombok.*;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.util.List;
 import java.util.Set;
 
 @Data
@@ -18,7 +20,7 @@ public class Customer implements SuperEntity{
     private Integer userId;
     @Column(nullable = false, length = 30, name = "user_name")
     private String userName;
-    @Column(nullable = false, length = 20)
+    @Column(nullable = false, length = 50)
     private String email;
     @Column(nullable = false, length = 20, name = "first_name")
     private String firstName;
@@ -27,13 +29,13 @@ public class Customer implements SuperEntity{
     @Column(name = "created_on", updatable = false, nullable = false)
     private LocalDateTime createdOn;
     @Column(nullable = false, name = "is_active")
-    private boolean isActive;
+    private Boolean isActive;
 
     @Setter(AccessLevel.NONE)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
     @OneToMany(mappedBy = "customer")
-    private Set<Order> orderSet;
+    private List<Order> orderList;
 
     public Customer(String userName, String email, String firstName, String lastName, LocalDateTime createdOn, boolean isActive) {
         this.userName = userName;
@@ -44,8 +46,9 @@ public class Customer implements SuperEntity{
         this.isActive = isActive;
     }
 
+
     public void addOrder(Order order){
-        orderSet.add(order);
+        orderList.add(order);
         order.setCustomer(this);
     }
 

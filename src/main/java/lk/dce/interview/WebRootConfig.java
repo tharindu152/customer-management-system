@@ -18,6 +18,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 import javax.persistence.EntityManagerFactory;
 
+
 @Configuration
 @PropertySource("classpath:/application.properties")
 @EnableTransactionManagement
@@ -44,6 +45,7 @@ public class WebRootConfig {
         lcemfb.setJpaVendorAdapter(jpaVendorAdapter());
         return lcemfb;
     }
+
 
     private JpaVendorAdapter jpaVendorAdapter() {
         HibernateJpaVendorAdapter adapter = new HibernateJpaVendorAdapter();

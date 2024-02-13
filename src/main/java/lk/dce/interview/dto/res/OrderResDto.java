@@ -1,5 +1,6 @@
-package lk.dce.interview.dto;
+package lk.dce.interview.dto.res;
 
+import lk.dce.interview.dto.ProductDto;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class OrderDto implements Serializable {
+public class OrderResDto implements Serializable {
     @Null(message = "Id should be empty. It is auto generated")
     private Integer orderId;
     @NotNull(message = "Order status can not be empty")
@@ -30,6 +31,6 @@ public class OrderDto implements Serializable {
     @PositiveOrZero(message = "Customer Id must be positive")
     private Integer customerId;
     @NotNull(message = "Product id must be provided to place the order")
-    private Integer productId;
+    private ProductResDto product;
 
 }
