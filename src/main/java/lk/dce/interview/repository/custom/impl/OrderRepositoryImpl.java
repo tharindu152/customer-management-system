@@ -11,6 +11,6 @@ public class OrderRepositoryImpl extends CrudRepositoryImpl<Order, Integer> impl
 
     @Override
     public List<Order> findActiveOrdersByCustomerID(@Param("cusId") Integer id) {
-        return getEntityManager().createNativeQuery("SELECT * FROM order o INNER JOIN customer c ON o.order_by = c.user_id WHERE o.is_active = true AND c.user_id = :cusID", Order.class).getResultList();
+        return getEntityManager().createNativeQuery("SELECT * FROM order o INNER JOIN customer c ON o.order_by = c.user_id WHERE o.is_active = true AND c.user_id = :cusId", Order.class).getResultList();
     }
 }
