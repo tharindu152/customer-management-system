@@ -13,7 +13,7 @@ import java.util.Set;
 public class OrderRepositoryImpl extends CrudRepositoryImpl<Order, Integer> implements OrderRepository {
 
     @Override
-    public List<Order> findActiveOrdersByCustomerID(@Param("cusId") Integer id) {
-        return getEntityManager().createNativeQuery("SELECT * FROM order o INNER JOIN customer c ON o.order_by = c.user_id WHERE o.is_active = true AND c.user_id = :cusId", Order.class).getResultList();
+    public List<Order> findActiveOrdersByCustomerID(Integer cusId) {
+        return getEntityManager().createNativeQuery("SELECT o.order_id, o.is_active FROM `order` o INNER JOIN customer c on o.order_by = c.user_id WHERE o.is_active = true AND c.user_id = " + cusId.toString(), Order.class).getResultList();
     }
 }

@@ -35,12 +35,6 @@ public class OrderServiceImpl implements OrderService {
         Order order = transformer.fromOrderDto(orderDto);
         System.out.println(orderDto);
         System.out.println(order);
-//        Customer c = new Customer();
-//        Product p = new Product();
-//        c.setUserId(orderDto.getCustomerId());
-//        p.setProductId(orderDto.getProductId());
-//        order.setCustomer(c);
-//        order.setProduct(p);
         Order o = orderRepository.save(order);
         orderDto.setOrderId(o.getOrderId());
         orderDto.setOrderedOn(o.getOrderedOn());
@@ -56,7 +50,9 @@ public class OrderServiceImpl implements OrderService {
             throw new ResponseStatusException(HttpStatus.NOT_FOUND, "No customers found for the given id");
         }else {
             try {
+                System.out.println(id);
                 List<Order> activeOrderList = orderRepository.findActiveOrdersByCustomerID(id);
+                System.out.println(activeOrderList);
                 activeOrderDtoList = transformer.toOrderResDtoList(activeOrderList);
             }catch (Exception e){
                 throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());
