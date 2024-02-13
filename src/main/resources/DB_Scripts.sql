@@ -57,5 +57,27 @@ ADD CONSTRAINT FK_product_supplier
 FOREIGN KEY (supplier_id)
 REFERENCES supplier (supplier_id);
 
+/* Insert data */
+INSERT INTO supplier (created_on, is_active, supplier_name) VALUES (?, ?, ?);
+INSERT INTO product (created_on, is_active, product_name, supplier_id, unit_price) VALUES (?, ?, ?, ?, ?)
+INSERT INTO customer (created_on, email, first_name, is_active, last_name, user_name) VALUES (?, ?, ?, ?, ?, ?)
+INSERT INTO `order` (order_by, is_active, order_status, order_type, ordered_on, product_id, shipped_on) VALUES (?, ?, ?, ?, ?, ?, ?)
+
+/* Retrieve Data*/
+SELECT * FROM customer;
+SELECT `order`.order_id, p.product_name, `order`.is_active, c.user_name
+FROM `order`
+    INNER JOIN customer c   ON `order`.order_by = c.user_id
+    INNER JOIN product p    ON `order`.product_id = p.product_id
+WHERE `order`.is_active = true AND c.user_id = ?;
+
+/* Update Customer */
+UPDATE customer
+SET email=?, first_name=?, is_active=?, last_name=?, user_name=?
+WHERE user_id=?;
+
+/* Delete Customer */
+DELETE FROM customer WHERE user_id=?
+
 
 
