@@ -34,7 +34,7 @@ public class Customer implements SuperEntity{
     @Setter(AccessLevel.NONE)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @OneToMany(mappedBy = "customer")
+    @OneToMany(mappedBy = "customer", cascade = {CascadeType.REMOVE})
     private List<Order> orderList;
 
     public Customer(String userName, String email, String firstName, String lastName, LocalDateTime createdOn, boolean isActive) {

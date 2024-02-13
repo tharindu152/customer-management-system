@@ -59,7 +59,8 @@ public class Transformer {
 
     public List<OrderResDto> toOrderResDtoList(List<Order> orderList) {
         if(orderList != null){
-            return orderList.stream().map(this::toOrderResDto).collect(Collectors.toList());
+            List<OrderResDto> ordto = orderList.stream().map(this::toOrderResDto).collect(Collectors.toList());
+            return ordto;
         }else {
             return Collections.emptyList();
         }

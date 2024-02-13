@@ -31,7 +31,7 @@ public class Product implements SuperEntity{
     @ToString.Exclude
     @EqualsAndHashCode.Exclude
     @Setter(AccessLevel.NONE)
-    @OneToOne(mappedBy = "product")
+    @OneToOne(mappedBy = "product", cascade = {CascadeType.REMOVE})
     private Order order;
 
     public Product(String productName, BigDecimal unitPrice, LocalDateTime createdOn, boolean isActive, Supplier supplier) {

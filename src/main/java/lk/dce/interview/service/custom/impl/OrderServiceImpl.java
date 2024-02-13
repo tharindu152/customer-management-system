@@ -52,7 +52,6 @@ public class OrderServiceImpl implements OrderService {
             try {
                 System.out.println(id);
                 List<Order> activeOrderList = orderRepository.findActiveOrdersByCustomerID(id);
-                System.out.println(activeOrderList);
                 activeOrderDtoList = transformer.toOrderResDtoList(activeOrderList);
             }catch (Exception e){
                 throw new ResponseStatusException(HttpStatus.INTERNAL_SERVER_ERROR, e.getMessage());

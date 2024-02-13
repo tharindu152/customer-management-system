@@ -27,7 +27,7 @@ public class Supplier implements SuperEntity{
     @Setter(AccessLevel.NONE)
     @EqualsAndHashCode.Exclude
     @ToString.Exclude
-    @OneToMany(mappedBy = "supplier")
+    @OneToMany(mappedBy = "supplier", cascade = {CascadeType.REMOVE})
     private Set<Product> productSet;
 
     public Supplier(String supplierName, LocalDateTime createdOn, boolean isActive) {

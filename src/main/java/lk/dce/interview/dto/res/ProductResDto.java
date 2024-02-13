@@ -26,5 +26,5 @@ public class ProductResDto implements Serializable {
     private LocalDateTime createdOn;
     private Boolean isActive;
     @NotNull(message = "Supplier Id must be provided to add the product")
-    private SupplierDto supplierId;
+    private SupplierDto supplier;
 }
