@@ -31,7 +31,7 @@ public class Order implements SuperEntity{
     @JoinColumn(name = "order_by", referencedColumnName = "user_id", nullable = false)
     private Customer customer;
     @OneToOne
-    @JoinColumn(name = "product_id", referencedColumnName = "product_id", nullable = false, unique = true)
+    @JoinColumn(name = "product_id", referencedColumnName = "product_id", nullable = false)
     private Product product;
 
 
