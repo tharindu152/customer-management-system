@@ -19,7 +19,7 @@ public class SupplierHttpController {
 
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping(consumes = "application/json", produces = "application/json")
-    public SupplierDto createNewProduct(@RequestBody @Validated SupplierDto supplierDto) {
+    public SupplierDto createNewSupplier(@RequestBody @Validated SupplierDto supplierDto) {
         return supplierService.saveSupplier(supplierDto);
     }
 
