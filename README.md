@@ -12,6 +12,7 @@ The REST API for the mentioned web application was coded using undermentioned te
 - Java Springboot
 - Hibernate ORM
 - Hibernate Validator
+- Object Mapper
 - Lombok
 - MySQL
 <br>
